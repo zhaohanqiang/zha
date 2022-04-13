@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="/css/list1.css" rel="stylesheet"></link>
+
+<body>
+
+        <h1 style="text-align: center;"> ユーザー情報詳細</h1>
+
+     <form th:action="@{/user/update}" th:object="${userData}" th:method="post">
+ <table>
+<tr>
+   <td class="row mx-md-n5">
+       <div class="col-2 pt-3 border bg-light">ID</div>
+       <div class="col pt-3 border">
+             <input type="text" class="form-control" th:field="*{id}">
+       </div>
+
+
+      <div class="row mx-md-n5">
+        <div class="col-2 pt-3 border bg-light">名前</div>
+        <div class="col pt-3 border">
+             <input type="text" class="form-control" th:field="*{name}">
+        </div>
+      </div>
+
+      <div class="row mx-md-n5">
+        <div class="col-2 pt-3 border bg-light">住所</div>
+        <div class="col pt-3 border">
+             <input type="text" class="form-control" th:field="*{address}">
+        </div>
+      </div>
+      <div class="row mx-md-n5">
+        <div class="col-2 pt-3 border bg-light">電話番号</div>
+        <div class="col pt-3 border">
+             <input type="text" class="form-control" th:field="*{phone}">
+        </div>
+      </div>
+      <div class="row mx-md-n5">
+        <div class="col-2 pt-3 border bg-light">密码</div>
+        <div class="col pt-3 border">
+             <input type="text" class="form-control" th:field="*{password}">
+        </div>
+      </div>
+      <div class="row mx-md-n5">
+        <div class="col-2 pt-3 border bg-light">入社年月日</div>
+        <div class="col pt-3 border">
+             <input type="text" class="form-control" th:field="*{birthday}">
+        </div>
+      </div>
+    <br />
+    <div>
+    <input  style="background-color: #87CEFA;"     type="submit" class="btn" value="　編集　">
+    </div>
+ </td>
+    </table>
+    </tr>
+
+ </form>
+
+</body>
+</html>

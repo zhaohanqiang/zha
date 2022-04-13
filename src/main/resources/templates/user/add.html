@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ユーザー新規登録</title>
+<link href="/css/list1.css" rel="stylesheet"></link>
+<meta charset="utf-8" />
+<style>
+.invalid-feedback{
+ color:red;
+}
+
+
+</style>
+</head>
+<body>
+
+
+    <h1 style="text-align: center;"> ユーザー新規登録</h1>
+    <form th:action="@{/user/birthday}" th:object="${userRequest}"
+        method="post">
+        <table>
+            <tr>
+                <th class="cell_title">名前</th>
+                <th class="cell_required">※</th>
+                <td><input type="text" th:field="*{name}"　 th:errorclass="is-invalid"/>
+ <div class="invalid-feedback" th:errors="*{name}"
+></div>
+            </tr>
+            <tr>
+                <th class="cell_title">住所</th>
+                <th class="cell_required"></th>
+          <td><input type="text" th:field="*{address}"　 th:errorclass="is-invalid"/>
+ <div class="invalid-feedback" th:errors="*{address}"
+ ></div>
+            </tr>
+            <tr>
+                <th class="cell_title">電話番号</th>
+                <th class="cell_required"></th>
+<td><input type="text" th:field="*{phone}"　 th:errorclass="is-invalid"/>
+ <div class="invalid-feedback" th:errors="*{phone}"
+ ></div>
+            </tr>
+             <tr>
+                   <th class="cell_title">密码</th>
+                <th class="cell_required"></th>
+<td><input type="text" th:field="*{password}"　 th:errorclass="is-invalid"/>
+ <div class="invalid-feedback" th:errors="*{password}"
+ ></div>
+            </tr>
+            <tr>
+                <th class="cell_title">入社年月日</th>
+                <th class="cell_required"></th>
+<td><input type="text" th:field="*{birthday}"　 th:errorclass="is-invalid"/>
+ <div class="invalid-feedback" th:errors="*{birthday}"
+ ></div>
+            </tr>
+
+        </table>
+        <input style="margin-left:750px;background-color: #87CEFA;"  type="submit" value="登録" />
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ユーザー情報一覧</title>
+<link href="/css/list.css" rel="stylesheet"></link>
+<meta charset="utf-8" />
+</head>
+<body>
+    <h1>ユーザー情報一覧</h1>
+
+
+       <a th:href="@{/user/add}">新規登録はこちら</a> <br />
+        <table>
+<form th:action="@{/user/show}" th:object="${userthree}" method="post">
+	名前：<input type="text" th:field="*{name}" /><br/>
+	密码：<input type="text" th:field="*{password}" /><br/>
+
+	電話：<input type="text" th:field="*{phone}" /><br/>
+
+	<input type="submit" value="查询" /></form></table>
+        <br />
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>住所</th>
+                <th>電話</th>
+                   <th>密码</th>
+                <th>入社年月日</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr th:each="user : ${userlist}" th:object="${user}" class="align-middle">
+          <td th:text="*{id}"></td>
+          <td th:text="*{name}"></td>
+          <td th:text="*{address}"></td>
+          <td th:text="*{phone}"></td>
+           <td th:text="*{password}"></td>
+           <td th:text="*{birthday}"></td>
+
+
+
+
+
+          <td><a th:href="@{/user/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
+     <td><a th:href="@{/user/{id}/delete(id=*{id})}" class="btn btn-secondary">削除</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

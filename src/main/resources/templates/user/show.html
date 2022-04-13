@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="/css/show.css" rel="stylesheet"></link>
+<title>show.html</title>
+
+<meta charset="UTF-8">
+</head>
+<body>
+
+<div th:if= "${name.size >0}">
+
+ <table>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>住所</th>
+                <th>電話</th>
+                   <th>密码</th>
+                <th>入社年月日</th>
+                <h1 th:if="${user == null}">对不起，您要查找的用户不存在！</h1>
+            </tr>
+<tr th:each="user : ${name}" th:object="${user}" class="align-middle">　
+<td  th:text="${user.name}"></td>
+ <td  th:text="${user.password}"></td>
+ <td  th:text= "${user.id}"></td>
+ <td  th:text= "${user.address}"></td>
+ <td  th:text= "${user.phone}"></td>
+<td  th:text= "${user.birthday}"></td>
+</tr>
+
+</table>
+
+</div>
+<h1 th:if="${name.size <=0}">对不起，您要查找的用户不存在！</h1>
+</body>
+</html>
